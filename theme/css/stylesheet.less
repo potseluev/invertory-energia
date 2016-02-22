@@ -1,0 +1,722 @@
+@white: #FFFFFF;
+@orange: #FF6B00;
+@blue: #017CBA;
+
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic&subset=latin,cyrillic-ext);*/
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+}
+a {
+    text-decoration: none;
+}
+
+/* Orange color */
+.orange {
+  color: @orange;
+}
+
+.x-large {
+  font-size: x-large;
+}
+
+/* Header */
+header {
+  z-index: 100;
+}
+
+#topnav {
+  width: 100%;
+  background: @orange;
+  z-index: 100;
+  a {
+    color: @white;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  ul {
+    margin: 0px;
+    list-style: outside none none;
+    display: block;
+    overflow: hidden;
+    padding: 2px 0px 2px 15px;
+  }
+  li {
+    display: block;
+    float: left;
+    text-transform: uppercase;
+    padding-right: 20px;
+  }
+}
+
+
+#midlehead {
+  width: 100%;
+  background: @white;
+  box-shadow: 0 2px 4px #A3A3A3;
+  z-index: 100;
+  padding: 10px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+#slogan {
+  margin: -2px;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 600;
+  color: @blue;
+}
+
+#logo {
+  padding-left: 15px;
+  display: inline-block;
+  float: left;
+}
+
+#midleheadmidle {
+  display: inline-block;
+  float: left;
+}
+
+#midleheadright {
+  float: right;
+  padding: 0px 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#topphone {
+  color: @blue;
+  font-weight: 600;
+  font-size: x-large;
+}
+
+#topphone-bottom {
+  font-size: 0.8em;
+  text-align: center;
+  color: @blue;
+}
+
+/* Центральная часть по вертикали */
+
+.limitwidth {
+  max-width: 990px;
+  margin: 0px auto;
+  position: relative;
+  display: block;
+  height: 100%;
+}
+/* Страница, включающая боковой сайтбар и контент */
+
+#page {
+  background: @white;
+  margin: 0px auto;
+  box-shadow: 0 0 10px -4px #808080;
+  display: block;
+  padding: 20px 0px;
+  overflow: hidden;
+}
+
+#aside {/* Левая колонка */
+  float: left;/* Обтекание справа */
+/*border: 1px solid #333;*//* Параметры рамки вокруг */
+  width: 28%;/* Ширина колонки */
+  padding: 5px 5px;/* Поля вокруг текста */
+/*margin: 5px;*//* Значения отступов */
+  display: block;
+  overflow: hidden;
+}
+
+.hmenu {/* Заголовок блока левой колонки */
+  background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #FFA901), color-stop(1, #E86301));
+  background-image: -o-linear-gradient(top, #FFA901, #E86301);
+  background-image: -moz-linear-gradient(top, #FFA901, #E86301);
+  background-image: -webkit-linear-gradient(top, #FFA901, #E86301);
+  background-image: linear-gradient(to bottom, #FFA901, #E86301);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 13px;
+  text-shadow: 0px 1px 1px #FFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+#catalog {
+    li {
+      list-style: outside none none;
+      border-bottom: 1px dotted #DDD;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      padding-left: 10px;
+    }
+    ul {
+      padding: 10px 0px 0px;
+      margin: 0px;
+    }
+    a {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      color: #505050;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+}
+
+
+/* Правая колонка */
+
+#content {/* Правая колонка */
+  margin: 0px 0px 10px 28%;/* Значения отступов */
+  padding: 5px 0px 20px;/* Поля вокруг текста */
+  display: block;
+  p {
+    text-align: justify;
+  }
+}
+#middlecontent {
+  padding: 0px 20px;
+  font-size: 0.9em;
+}
+
+#middlecontent h1 {
+  color: @blue;
+  margin: 0px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+#middlecontent h2 {
+  color: @blue;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#middlecontent h1::after {
+  display: block;
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: @orange;
+  margin: 4px 0px 10px;
+}
+
+
+/* Товар в категории */
+.product-cart {
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 3px -1px #808080;
+    margin-top: 20px;
+    display: table;
+}
+.product-cart:hover {
+    box-shadow: 0 0 4px #808080;
+}
+
+.row-product-cart {
+    display: table-row;
+}
+
+.img-product-cart {
+    display: table-cell;
+}
+
+.img-product-cart img {
+    width: 100%;
+    height: auto;
+}
+
+.just-img-product-cart {
+    padding: 10px;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+}
+
+.just-img-product-cart:hover {
+    padding: 0px;
+}
+.desc-product-cart {
+    padding: 5px;
+    width: 50%;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.desc-product-cart h2 {
+    margin-top: 2px;
+}
+.buy-product-cart {
+    padding: 5px;
+    display: table-cell;
+    width: 25%;
+    vertical-align: top;
+}
+
+.buy-product-cart p {
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center !important;
+}
+
+.table-char-pc {
+    display: table;
+    width: 100%;
+}
+.row-char-pc {
+    display: table-row;
+}
+.cell-char-pc {
+    display: table-cell;
+    width: 50%;
+    border-bottom: 1px dotted #C0C0C0;
+    padding-left: 2px;
+}
+
+.buy-button {
+    border: solid @orange;
+    border-radius: 3px;
+    background: @orange;
+    color: @white;
+    padding: 5px 4px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    max-width: 160px;
+}
+
+ .buy-button:hover {
+     background: @white;
+     color: @orange;
+     cursor: pointer;
+ }
+ .nobuy-button {
+    border: solid #D0D0D0;
+    border-radius: 3px;
+    background: #D0D0D0;
+    color: @white;
+    padding: 5px 4px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    max-width: 160px;
+}
+.stars {
+    color: @orange;
+    font-size: 1.6em;
+    text-align: center;
+    /*width: 100%;
+    height: 40px;*/
+    margin-top: -12px;
+}
+.star1:before {
+    content: "\2605\2606\2606\2606\2606";
+}
+.star2:before {
+    content: "\2605\2605\2606\2606\2606";
+}
+.star3:before {
+    content: "\2605\2605\2605\2606\2606";
+}
+.star4:before {
+    content: "\2605\2605\2605\2605\2606";
+}
+.star5:before {
+    content: "\2605\2605\2605\2605\2605";
+}
+/* Подвал */
+
+#footer {
+  background: @blue;
+  padding: 10px 0px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  min-height: 50px;
+  color: @white;
+}
+
+.spanphone::before {
+  content: "\9742";
+}
+#poster {
+    background: url(/theme/img/test.png) repeat-x 50% 50%; max-height: 295px;
+}
+/* Карточка товара */
+.ctable {
+    display: table;
+    width: 100%;
+}
+.crow {
+    display: table-row;
+}
+
+.cleftcell, .crightcell {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.cleftcell {
+    width: 50%;
+}
+.crightcell {
+    width: 50%;
+}
+
+.bigimage {
+  box-shadow: 1px 1px 3px #808080;
+  padding: 5px;
+  border-radius: 2px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.crightcellcontent {
+    padding-left: 10px;
+}
+
+#priceproduct {
+    font-size: 2em;
+    font-weight: 600;
+    color: @blue;
+    text-align: center;
+   /* margin-bottom: 10px;*/
+}
+#previewimgall {
+    display: table-row;
+}
+
+.previewimg {
+    display: table-cell;
+}
+
+.previewimg-inner {
+    padding: 5px;
+    max-width: 100px;
+    width: 80%;
+    border: 0.2px solid #D0D0D0;
+    cursor: pointer;
+}
+
+.previewimg img {
+    width: 100%;
+    height: auto;
+}
+.chs-table {
+    display: table;
+    width: 100%;
+}
+.chs-tr {
+    display: table-row;
+}
+.chs-th {
+    display: table-cell;
+    font-weight: 600;
+    border-bottom: 0.2px dotted #C0C0C0;
+}
+.chs-td {
+    display: table-cell;
+    padding-left: 5px;
+    border-bottom: 0.2px dotted #C0C0C0;
+}
+/* Oformleine zakaza */
+.table {
+    display: table;
+    width: 100%;
+    .tr {
+        display: table-row;
+    }
+    .th {
+        display: table-cell;
+        text-align: center;
+        font-weight: 600;
+        padding: 5px;
+        background-color: @blue;
+        color: @white;
+    }
+
+    .td {
+        display: table-cell;
+        padding: 5px;
+    }
+
+    .center {
+        text-align: center;
+    }
+    .doted-border-bottom {
+       border-bottom: 0.2px dotted #C0C0C0;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+
+    .bold {
+      font-weight: 600;
+    }
+
+    .delete {
+        cursor: pointer;
+    }
+
+    .fifty {
+        background: none;
+        width: 50%;
+        color: #000000;
+        text-align: left;
+        #submit {
+            border-width: 3px;
+        }
+        input {
+            width: 100%;
+            padding-left: 5px;
+        }
+
+    }
+
+
+}
+
+input.quantity {
+      width: 24px;
+      text-align: center;
+
+}
+input, select {
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    min-height: 22px;
+}
+
+.error {
+    border-color: #FF2424;
+}
+
+.context {
+    display: inline-table;
+    padding: 5px 10px;
+    width: 90%;
+    margin-left: 14px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 3px -1px #808080;
+    margin-top: 10px;
+    cursor: pointer;
+    .td {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 10px;
+    }
+    .tr {
+        display: table-row;
+    }
+    .th {
+        display: table-cell;
+        width: 2.5em;
+        min-width: 32px;
+        vertical-align: middle;
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+}
+a .context {
+    color: #000000;
+}
+
+.context:hover {
+    box-shadow: 0 0 4px #808080;
+}
+
+@media (max-width: 765px) {
+  #aside {
+    width: 100%;
+  }
+
+  #content {
+    margin-left: 15px;
+  }
+
+  .crow {
+      display: block;
+  }
+
+  .ctable {
+      display: block;
+  }
+  .cleftcell {
+      width: 100%;
+      display: block;
+  }
+
+  .context {
+      margin-left: 0px;
+  }
+
+  #priceproduct {
+      margin-top: 10px;
+  }
+
+  #topphone-bottom {
+      display: none;
+  }
+
+}
+
+@media (max-width:990px){
+  #poster {
+      margin-bottom: -4.5px;
+  }
+
+}
+
+/* Font */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBjTOQ_MqJVwkKsUn0wKzc2I.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBjUj_cnvWIuuBMVgbX098Mw.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBiYE0-AqJ3nfInTTiDXDjU4.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBo4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Open Sans Semibold Italic'), local('OpenSans-SemiboldItalic'), url(https://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxmgpAmOCqD37_tyH_8Ri5MM.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Open Sans Semibold Italic'), local('OpenSans-SemiboldItalic'), url(https://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxsPNMTLbnS9uQzHQlYieHUU.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Open Sans Semibold Italic'), local('OpenSans-SemiboldItalic'), url(https://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxnywqdtBbUHn3VPgzuFrCy8.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Open Sans Semibold Italic'), local('OpenSans-SemiboldItalic'), url(https://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxl2umOyRU7PgRiv8DXcgJjk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
