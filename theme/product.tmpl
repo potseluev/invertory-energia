@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title><TMPL_VAR NAME='category'> <TMPL_VAR NAME='trademark'> <TMPL_VAR NAME='model'></title>
+  <meta charset="windows-1251">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico"/>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/stylesheet.less">
+  <script src="/theme/js/less.js" type="text/javascript"></script>
+  <script src="/theme/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+<TMPL_INCLUDE FILE="_header.tmpl">
+<div class="limitwidth">
+  <div id="page">
+<TMPL_INCLUDE FILE="_leftmenu.tmpl">
+
+  <div id="content">
+    <div id="middlecontent">
+<h1><TMPL_VAR NAME='category'> <TMPL_VAR NAME='trademark'> <TMPL_VAR NAME='model'></h1>
+      <div class="ctable">
+        <div class="crow">
+          <div class="cleftcell">
+            <div class="bigimage">
+              <img src="/products/img/<TMPL_VAR NAME='image_big'>" id="bigimg"  alt="">
+            </div>
+            <div class="stars star<TMPL_VAR NAME='raiting'>" style="margin-top: 0px;"></div>
+            <div id="previewimgall">
+
+              <TMPL_IF NAME="image_big_2">
+              <div class="previewimg" data-path="/products/img/<TMPL_VAR NAME='image_big'>">
+                <div class="previewimg-inner"><img src="/products/img/<TMPL_VAR NAME='image_big'>" alt=""></div>
+              </div>
+              <div class="previewimg" data-path="/products/img/<TMPL_VAR NAME='image_big_2'>">
+                <div class="previewimg-inner"><img src="/products/img/<TMPL_VAR NAME='image_big_2'>" alt=""></div>
+              </div>
+              </TMPL_IF>
+
+              <TMPL_IF NAME="image_big_3">
+              <div class="previewimg" data-path="/products/img/<TMPL_VAR NAME='image_big_3'>">
+                <div class="previewimg-inner"><img src="/products/img/<TMPL_VAR NAME='image_big_3'>" alt=""></div>
+              </div>
+              </TMPL_IF>
+
+              <TMPL_IF NAME="image_big_4">
+              <div class="previewimg" data-path="/products/img/<TMPL_VAR NAME='image_big_4'>">
+                <div class="previewimg-inner"><img src="/products/img/<TMPL_VAR NAME='image_big_4'>" alt=""></div>
+              </div>
+              </TMPL_IF>
+
+              <TMPL_IF NAME="image_big_5">
+              <div class="previewimg" data-path="/products/img/<TMPL_VAR NAME='image_big_5'>">
+                <div class="previewimg-inner"><img src="/products/img/<TMPL_VAR NAME='image_big_5'>" alt=""></div>
+              </div>
+              </TMPL_IF>
+
+
+            </div>
+          </div>
+          <div class="crightcell">
+            <div class="crightcellcontent">
+            <div id="priceproduct"><TMPL_VAR NAME='price'> руб</div>
+            <a href="/delivery">
+            <div class="context">
+              <div class="tr">
+                <div class="th"><img src="/theme/img/icons/svg/delivery.svg" alt=""></div>
+                <div class="td" style="width: 40%;">Доставка: <b>1 день</b></div>
+                <div class="td">по Москве <b>400 руб</b> за МКАД <b>+20 руб/км</b></div>
+              </div>
+            </div>
+            </a>
+            <a href="/garantee">
+            <div class="context">
+              <div class="tr">
+                <div class="th"><img src="/theme/img/icons/svg/insignia.svg" alt=""></div>
+                <div class="td" style="width: 40%;">Гарантия: <b>1 год</b></div>
+                <div class="td">(тех. обслуживание)</div>
+              </div>
+            </div>
+            </a>
+            <TMPL_IF NAME="certificate">
+            <a href="/<TMPL_VAR NAME='certificate'>">
+              <div class="context">
+                <div class="tr">
+                  <div class="th"><img src="/theme/img/icons/svg/diploma.svg" alt=""></div>
+                  <div class="td">Сертификат соответствия</div>
+                </div>
+              </div>
+            </a>
+            </TMPL_IF>
+            <TMPL_IF NAME="manual">
+            <a href="/<TMPL_VAR NAME='manual'>">
+            <div class="context">
+              <div class="tr">
+                <div class="th"><img src="/theme/img/icons/svg/task-complete.svg" alt=""></div>
+                <div class="td">Технический паспорт</div>
+              </div>
+            </div>
+            </a>
+            <TMPL_IF NAME="available"><a href="/buy.php?product=<TMPL_VAR NAME='code'>"></TMPL_IF>
+            <div class="<TMPL_IF NAME="available">buy-button</TMPL_ELSE>nobuy-button</TMPL_IF>" style="margin-top: 16px;">
+            <TMPL_IF NAME="available">Заказать</TMPL_ELSE>Нет в наличии</TMPL_IF>
+            </div>
+            <TMPL_IF NAME="available"></a></TMPL_IF>
+            </TMPL_IF>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2>Описание</h2>
+<TMPL_VAR NAME='text'>
+    </div>
+  </div>
+  </div>
+</div>
+<TMPL_INCLUDE FILE="_footer.tmpl">
+
+<script type="text/javascript" src="/theme/js/style.js"></script>
+<script>
+$('.previewimg').click(function(){
+    $('#bigimg').attr('src', $(this).data('path'));
+});
+</script>
+
+</body>
+</html>

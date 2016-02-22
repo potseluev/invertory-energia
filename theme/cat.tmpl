@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title><TMPL_VAR NAME="title"></title>
+  <meta name=viewport content="width=device-width, initial-scale=0.7">
+  <meta charset="windows-1251">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/stylesheet.less">
+  <script async="async" src="/theme/js/less.js" type="text/javascript"></script>
+  <script async="async" src="/theme/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+<TMPL_INCLUDE FILE="_header.tmpl">
+<div class="limitwidth">
+  <div id="page">
+<TMPL_INCLUDE FILE="_leftmenu.tmpl">
+
+  <div id="content">
+    <div id="middlecontent">
+<h1><TMPL_VAR NAME='caption'></h1>
+<TMPL_LOOP NAME='products'>
+
+    <div class="product-cart">
+      <div class="row-product-cart">
+          <div class="img-product-cart">
+            <a href="./<TMPL_VAR NAME='code'>">
+            <div class="just-img-product-cart"><img src="/products/img/<TMPL_VAR NAME='code'>_big-170.jpg" alt="<TMPL_VAR NAME='category'> <TMPL_VAR NAME='trademark'> <TMPL_VAR NAME='model'>"></div>
+            </a>
+            <div class="stars star<TMPL_VAR NAME='raiting'>"></div>
+          </div>
+          <div class="desc-product-cart">
+            <a href="<TMPL_VAR NAME='code'>"><h2><TMPL_VAR NAME='category'> <TMPL_VAR NAME='trademark'> <TMPL_VAR NAME='model'></h2>
+            </a><p><TMPL_VAR NAME='description'></p>
+            <div class="table-char-pc">
+              <TMPL_LOOP NAME='characteristics'>
+
+              <div class="row-char-pc">
+                <div class="cell-char-pc"><TMPL_VAR NAME='name'></div>
+                <div class="cell-char-pc"><TMPL_VAR NAME='value'></div>
+              </div>
+              </TMPL_LOOP>
+
+            </div>
+
+          </div>
+
+          <div class="buy-product-cart">
+            <p><TMPL_VAR NAME='price'> руб</p>
+            <TMPL_IF NAME="available">
+
+            <a href="/buy.php?product=<TMPL_VAR NAME='code'>"><div class="buy-button">Заказать</div></a>
+            </TMPL_ELSE>
+
+            <div class="nobuy-button">Нет в наличии</div>
+            </TMPL_IF>
+          </div>
+      </div>
+    </div>
+
+</TMPL_LOOP>
+    </div>
+  </div>
+  </div>
+</div>
+<TMPL_INCLUDE FILE="_footer.tmpl">
+
+<script async="async" type="text/javascript" src="/theme/js/style.js"></script>
+
+</body>
+</html>
