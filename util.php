@@ -194,7 +194,7 @@ function getDeliveryArrayPHP4( $xpath_expression = '//delivery' )
 ###########################################################
 function getProductsArray( $xpath_expression = '//product' )
 {
-  if (version_compare(PHP_VERSION, '5.0.0', '>=')) 
+  if (version_compare(PHP_VERSION, '5.0.0', '>='))
   {
     return(getProductsArrayPHP5($xpath_expression));
   } else {
@@ -203,7 +203,11 @@ function getProductsArray( $xpath_expression = '//product' )
 }
 
 ###########################################################
-function getProductsArrayPHP5( $xpath_expression = '//product' )
+function getProductsArrayPHP5( $xpath_expression = '//product' ) {
+
+    return array_merge(getProductsArrayPHP5Base($xpath_expression), getProductsArrayPHP5Extended($xpath_expression));
+}
+function getProductsArrayPHP5Base( $xpath_expression = '//product' )
 {
     global $ALLOW_THIRD_PARTY_PRODUCTS;
 
@@ -249,7 +253,7 @@ function getProductsArrayPHP5( $xpath_expression = '//product' )
             }
         }
     }
-  
+
   $xpath = new DOMXPath($xml);
   $xpath_expression = iconv("windows-1251", "UTF-8", $xpath_expression);
   $nodes = $xpath->query($xpath_expression);
@@ -260,7 +264,7 @@ function getProductsArrayPHP5( $xpath_expression = '//product' )
     $product['code'] = $node->getAttribute('code');
 
     foreach($node->childNodes as $subnode) {
-      if ($subnode->nodeName == 'characteristics') 
+      if ($subnode->nodeName == 'characteristics')
       {
         $sub2nodes = array();
         foreach($subnode->childNodes as $sub2node)
@@ -268,7 +272,7 @@ function getProductsArrayPHP5( $xpath_expression = '//product' )
 	      if ($sub2node->hasAttributes())
 	      {
             $sub2nodes[] = array(
-                                'name' => iconv("UTF-8", "windows-1251", $sub2node->getAttribute('name')), 
+                                'name' => iconv("UTF-8", "windows-1251", $sub2node->getAttribute('name')),
                                 'value' => iconv("UTF-8", "windows-1251",$sub2node->getAttribute('value'))
                                );
 	      }
@@ -291,7 +295,95 @@ function getProductsArrayPHP5( $xpath_expression = '//product' )
   }
   return($products);
 }
+function getProductsArrayPHP5Extended( $xpath_expression = '//product' )
+{
+    global $ALLOW_THIRD_PARTY_PRODUCTS;
 
+    $products = array();
+    if (!file_exists(dirname(__FILE__) . '/products/shop_extended.xml')) return $products;
+
+    $xml = new DOMDocument('1.0', 'windows-1251');
+    $xml->load(dirname(__FILE__) . '/products/shop_extended.xml');
+
+
+
+    $CUSTOM_SHOP_XML = dirname(__FILE__) . '/custom/shop.xml';
+    if (file_exists($CUSTOM_SHOP_XML))
+    {
+        $custom_xml = new DOMDocument();
+        $custom_xml->load($CUSTOM_SHOP_XML);
+        $custom_products = $custom_xml->getElementsByTagName('product');
+        foreach($custom_products as $custom_product) {
+            $custom_code = $custom_product->getAttribute('code');
+            $FOUND = false;
+            foreach ($xml->getElementsByTagName('product') as $product)
+            {
+                if ($product->getAttribute('code') == $custom_code)
+                {
+                    foreach($custom_product->childNodes as $custom_subnode) {
+                        if (($custom_subnode->nodeType == XML_ELEMENT_NODE) && (!in_array($custom_subnode->nodeName, array('price', 'available'), true))) {
+                            $nodes = $product->getElementsByTagName($custom_subnode->nodeName);
+                            if ($nodes->length > 0) {
+                                $product->removeChild($nodes->item(0));
+                            }
+                            $product->appendChild($xml->importNode($custom_subnode, true));
+                        }
+                    }
+                    $FOUND = true;
+                    break;
+                }
+            }
+            if ($ALLOW_THIRD_PARTY_PRODUCTS) {
+                if (!$FOUND) {
+                    $products_node = $xml->getElementsByTagName('products');
+                    $products_node = $products_node->item(0);
+                    $products_node->appendChild($xml->importNode($custom_product, true));
+                }
+            }
+        }
+    }
+
+  $xpath = new DOMXPath($xml);
+  $xpath_expression = iconv("windows-1251", "UTF-8", $xpath_expression);
+  $nodes = $xpath->query($xpath_expression);
+
+  foreach($nodes as $node)
+  {
+    $product = array();
+    $product['code'] = $node->getAttribute('code');
+
+    foreach($node->childNodes as $subnode) {
+      if ($subnode->nodeName == 'characteristics')
+      {
+        $sub2nodes = array();
+        foreach($subnode->childNodes as $sub2node)
+        {
+	      if ($sub2node->hasAttributes())
+	      {
+            $sub2nodes[] = array(
+                                'name' => iconv("UTF-8", "windows-1251", $sub2node->getAttribute('name')),
+                                'value' => iconv("UTF-8", "windows-1251",$sub2node->getAttribute('value'))
+                               );
+	      }
+        }
+        $product[$subnode->nodeName] = $sub2nodes;
+      } else {
+        $product[$subnode->nodeName] = iconv("UTF-8", "windows-1251",$subnode->nodeValue);
+      }
+    }
+
+    if (isset($_SESSION[ $product['code'] ]))
+    {
+      $product['quantity'] = $_SESSION[ $product['code'] ];
+      $product['cost'] = $product['quantity'] * $product['price'];
+    }
+
+    $product['fprice'] = number_format($product['price'], 0, '.', ' ');
+
+    $products[] = $product;
+  }
+  return($products);
+}
 ###########################################################
 function getProductsArrayPHP4( $xpath_expression = '//product' )
 {
