@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<shop>
+	<products>
+		<product code="al-350">
+			<raiting>5</raiting>
+			<category>Автомобильный инвертор</category>
+			<trademark>Энергия</trademark>
+			<series>AL</series>
+			<model>AutoLine 350</model>
+			<price>3000</price>
+			<description>Автомобильный инвертор мощностью 300 Вт</description>
+			<characteristics>
+				<chracteristic name="Мощность, кВА" value="0,35"/>
+				<chracteristic name="Напряжение входа, В" value="112 В"/>
+				<chracteristic name="Напряжение выхода, В" value="~220 В"/>
+			</characteristics>
+			<type>0</type>
+			<case>1</case>
+			<phases>1</phases>
+			<power>350</power>
+			<weight>1.5</weight>
+			<image>al-350.jpg</image>
+			<image_big>al-350_big.jpg</image_big>
+			<image_big_2>al-big_2.jpg</image_big_2>
+			<image_big_3>al-big_3.jpg</image_big_3>
+			<html>al-350.htm</html>
+			<available>0</available>
+			<bestseller>0</bestseller>
+			<barcode> </barcode>
+			<article>Е0201-0012</article>
+			<manual>pages/img/energy-autoline-passport.pdf</manual>
+		</product>
+		<product code="al-600">
+			<raiting>5</raiting>
+			<category>Автомобильный инвертор</category>
+			<trademark>Энергия</trademark>
+			<series>AL</series>
+			<model>AutoLine 600</model>
+			<price>4600</price>
+			<description>Автомобильный инвертор Auto Line 600. Хватает на 500 Вт различной техники. Отличный спутник в дальней поездке на машине. </description>
+			<characteristics>
+				<chracteristic name="Мощность, кВА" value="0,6"/>
+				<chracteristic name="Напряжение входа, В" value="112 В"/>
+				<chracteristic name="Напряжение выхода, В" value="220 В"/>
+			</characteristics>
+			<type>0</type>
+			<case>1</case>
+			<phases>1</phases>
+			<power>350</power>
+			<weight>1.5</weight>
+			<image>al-350.jpg</image>
+			<image_big>al-350_big.jpg</image_big>
+			<html>al-350.htm</html>
+			<available>0</available>
+			<bestseller>0</bestseller>
+			<barcode> </barcode>
+			<article>Е0201-0012</article>
+		</product>
+	</products>
+</shop>
